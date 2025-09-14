@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Máquinas</title>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        a {
+            text-decoration: none;
+            padding: 5px 10px;
+            margin: 5px;
+            color: white;
+            border-radius: 4px;
+        }
+
+        .btn-add {
+            background-color: #007bff;
+        }
+
+        .btn-delete {
+            background-color: #dc3545;
+        }
+
+        .actions {
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Máquinas ⚙️</h1>
+
+    <div>
+        <a href="/maquinas/compressor/new" class="btn-add">Novo Compressor</a>
+        <a href="/maquinas/furadeira/new" class="btn-add">Nova Furadeira</a>
+        <a href="/maquinas/empilhadeira/new" class="btn-add">Nova Empilhadeira</a>
+    </div>
+    <br>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Código</th>
+                <th>Tipo</th>
+                <th>Parâmetros</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="m : ${maquinas}">
+                <td th:text="${m.id}"></td>
+                <td th:text="${m.codigo}"></td>
+                <td>
+                    <span th:switch="${m.class.simpleName}">
+                        <span th:case="'Compressor'">Compressor</span>
+                        <span th:case="'Furadeira'">Furadeira</span>
+                        <span th:case="'Empilhadeira'">Empilhadeira</span>
+                    </span>
+                </td>
+                <td th:text="${m.getAtributos()}"></td>
+                <td class="actions">
+                    <a th:href="@{/maquinas/delete/{id}(id=${m.id})}" class="btn-delete" onclick="return confirm('Tem certeza que deseja excluir esta máquina?');">
+                        Excluir
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

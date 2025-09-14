@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Novo Compressor</title>
+</head>
+<body>
+    <h1>Novo Compressor</h1>
+
+    <form th:action="@{/maquinas/compressor/store}" th:object="${compressor}" method="post">
+        <div>
+            <label for="codigo">Código</label>
+            <input type="number" id="codigo" th:field="*{codigo}" required>
+        </div>
+        <div>
+            <label for="pressaoNominal">Pressao Nominal</label>
+            <input type="number" id="pressaoNominal" th:field="*{pressaoNominal}" required>
+        </div>
+        <div>
+            <label for="vazaoNominal">Vazão Nominal</label>
+            <input type="number" id="vazaoNominal" th:field="*{vazaoNominal}" required>
+        </div>
+        <div>
+            <button type="submit">Gravar</button>
+        </div>
+    </form>
+    
+    <a href="/maquinas/list">Voltar</a>
+</body>
+</html>

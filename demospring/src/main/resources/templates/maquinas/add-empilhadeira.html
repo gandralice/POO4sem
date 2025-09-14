@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Nova Empilhadeira</title>
+</head>
+
+<body>
+  <h1>Nova Empilhadeira</h1>
+
+  <form th:action="@{/maquinas/empilhadeira/store}" th:object="${empilhadeira}" method="post">
+    <div>
+      <label for="codigo">Código</label>
+      <input type="number" id="codigo" th:field="*{codigo}" required>
+    </div>
+    <div>
+      <label for="capacidadeCarga">Capacidade de Carga (toneladas)</label>
+      <input type="number" step="0.1" id="capacidadeCarga" th:field="*{capacidadeCarga}" required>
+    </div>
+    <div>
+      <label for="alturaElevacao">Altura de Elevação (metros)</label>
+      <input type="number" step="0.1" id="alturaElevacao" th:field="*{alturaElevacao}" required>
+    </div>
+    <div>
+      <button type="submit">Gravar</button>
+    </div>
+  </form>
+
+  <a href="/maquinas/list">Voltar</a>
+</body>
+
+</html>

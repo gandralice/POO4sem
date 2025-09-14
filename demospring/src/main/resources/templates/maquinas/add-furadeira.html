@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Nova Furadeira</title>
+</head>
+
+<body>
+  <h1>Nova Furadeira</h1>
+
+  <form th:action="@{/maquinas/furadeira/store}" th:object="${furadeira}" method="post">
+    <div>
+      <label for="codigo">Código</label>
+      <input type="number" id="codigo" th:field="*{codigo}" required>
+    </div>
+    <div>
+      <label for="diametroMaximo">Diâmetro Máximo (mm)</label>
+      <input type="number" step="0.1" id="diametroMaximo" th:field="*{diametroMaximo}" required>
+    </div>
+    <div>
+      <label for="rotacaoMaxima">Rotação Máxima (RPM)</label>
+      <input type="number" id="rotacaoMaxima" th:field="*{rotacaoMaxima}" required>
+    </div>
+    <div>
+      <button type="submit">Gravar</button>
+    </div>
+  </form>
+
+  <a href="/maquinas/list">Voltar</a>
+</body>
+
+</html>
