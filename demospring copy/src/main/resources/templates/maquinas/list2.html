@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Máquinas</title>
+</head>
+<body>
+
+    <h1>Máquinas</h1>
+    <a href="/maquinas/compressor/new">Novo Compressor</a>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Código</th>
+                <th>Tipo</th>
+                <th>Parâmetros</th>
+                <th>Ação</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="m : ${maquinas}">
+                <td th:text="${m.id}"></td>
+                <td th:text="${m.codigo}"></td>
+                <td>
+                    <span th:text="${m instanceof T(com.example.demospring.model.Compressor)} ? 'Compressor' : 'Furadeira'"></span>
+                </td>
+                <td th:text="${m.getAtributos()}"></td>
+                <td><a th:href="@{/maquinas/manutencao/new/{id}(id=${m.id})}">Adicionar Manutenção</a></td>
+                <td>
+                    <h4>Manutenções</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Data Manutenção</th>
+                                <th>Serviço Realizado</th>
+                                <th>Técnico Responsável</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            <tr th:each="manutencao : ${m.manutencoes}">
+                                    <td th:text="${manutencao.dataManutencao}"></td>
+                                    <td th:text="${manutencao.servicoRealizado}"></td>
+                                    <td th:text="${manutencao.tecnicoResponsavel}"></td>
+                            </tr>
+                                
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>

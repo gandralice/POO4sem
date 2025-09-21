@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Nova Furadeira</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-4">
+    <h1 class="mb-4">Nova Furadeira</h1>
+
+    <form th:action="@{/maquinas/furadeira/store}" th:object="${furadeira}" method="post">
+
+        <div class="mb-3">
+            <label for="codigo" class="form-label">Código</label>
+            <input type="number" class="form-control" id="codigo" th:field="*{codigo}" placeholder="Digite o código" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="rotacaoMaxima" class="form-label">Rotação Máxima</label>
+            <input type="number" class="form-control" id="rotacaoMaxima" th:field="*{rotacaoMaxima}" placeholder="Digite a rotação máxima" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="diametroMaximo" class="form-label">Diâmetro Máximo</label>
+            <input type="number" step="any" class="form-control" id="diametroMaximo" th:field="*{diametroMaximo}" placeholder="Digite o diâmetro máximo" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Salvar</button>
+        <a href="/maquinas/list" class="btn btn-secondary ms-2">Cancelar</a>
+    </form>
+</div>
+</body>
+</html>

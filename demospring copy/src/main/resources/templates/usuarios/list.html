@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Minha View</title>
+</head>
+<body>
+
+    <h1>Usuários</h1>
+    <a href="/usuarios/new">Novo Usuário</a>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Preço</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="u : ${usuarios}">
+                <td th:text="${u.id}"></td>
+                <td th:text="${u.nome}"></td>
+                <td th:text="${u.email}"></td>
+                <td><a th:href="@{/usuarios/edit/{id}(id=${u.id})}">Editar</a></td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>

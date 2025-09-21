@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Máquinas</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="container mt-4">
+    <h1 class="mb-4">Máquinas</h1>
+    <div class="mb-3">
+      <a href="/maquinas/compressor/new" class="btn btn-primary me-2">Novo Compressor</a>
+      <a href="/maquinas/furadeira/new" class="btn btn-secondary me-2">Nova Furadeira</a>
+      <a href="/maquinas/empilhadeira/new" class="btn btn-success">Nova Empilhadeira</a>
+    </div>
+    <table class="table table-bordered table-striped">
+      <thead class="table-dark">
+        <tr>
+          <th>ID</th>
+          <th>Código</th>
+          <th>Tipo</th>
+          <th>Parâmetros</th>
+          <th>Manutenção</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="m : ${maquinas}">
+          <td th:text="${m.id}"></td>
+          <td th:text="${m.codigo}"></td>
+          <td th:text="${m.tipoMaquina}"></td>
+          <td th:text="${m.getAtributos()}"></td>
+          <td>
+            <table class="table table-bordered table-striped">
+              <thead class="table-dark">
+                <tr>
+                  <th>Data Manutenção</th>
+                  <th>Serviço Realizado</th>
+                  <th>Técnico Responsável</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                <tr th:each="manutencao : ${m.manutencoes}">
+                  <td th:text="${manutencao.dataManutencao}"></td>
+                  <td th:text="${manutencao.servicoRealizado}"></td>
+                  <td th:text="${manutencao.funcionario.nome}"></td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td>
+            <div class="btn-group" role="group">
+              <a th:href="@{'/maquinas/' + ${m.tipoMaquina.toLowerCase()} + '/edit/' + ${m.id}}" class="btn btn-sm btn-warning">Editar</a>
+              <a th:href="@{'/maquinas/' + ${m.tipoMaquina.toLowerCase()} + '/delete/' + ${m.id}}" class="btn btn-sm btn-danger" onclick="return confirm('Tem certeza que deseja excluir esta máquina?');">
+                Excluir
+              </a>
+              <a th:href="@{/maquinas/manutencao/new/{id}(id=${m.id})}" class="btn btn-sm btn-info">Adicionar Manutenção</a>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+
+</html>
