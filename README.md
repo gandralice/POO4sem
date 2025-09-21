@@ -1,30 +1,39 @@
 # Repositório de Projetos de Programação Orientada a Objetos (POO)
 
-Bem-vindo ao meu repositório de projetos e atividades da disciplina de Programação Orientada a Objetos, com foco na linguagem Java. Este espaço reúne aplicações que exploram conceitos fundamentais de POO e padrões de arquitetura.
+Bem-vindo ao meu repositório centralizado de projetos e atividades desenvolvidos durante a disciplina de Programação Orientada a Objetos. Este espaço reúne diferentes aplicações que exploram conceitos de POO em Java, desde implementações puras até sistemas web complexos com o framework Spring Boot.
 
 ## Projetos
 
-Cada subdiretório é um projeto independente que aborda diferentes aspectos da programação com Java.
+Este repositório está organizado como um monorepo, onde cada subdiretório é um projeto independente que documenta uma etapa do meu aprendizado.
 
-| Projeto                                          | Framework/Abordagem  | Descrição Breve                                                          |
-| ------------------------------------------------ | -------------------- | ------------------------------------------------------------------------ |
-| 📁 [**demospring**](./demospring/)               | `Java (Spring Boot)` | Um sistema CRUD que aplica herança e polimorfismo com Spring Data JPA.   |
-| 📁 [**movie_catalog_mvc**](./movie_catalog_mvc/) | `Java (Puro)`        | Um catálogo de filmes simples para praticar o padrão de arquitetura MVC. |
+| Projeto                                           | Framework/Abordagem  | Descrição Breve                                                                    |
+| ------------------------------------------------- | -------------------- | ---------------------------------------------------------------------------------- |
+| [**manutencao_maquinas**](./manutencao_maquinas/) | `Java (Spring Boot)` | Sistema completo para gestão de máquinas, funcionários e histórico de manutenções. |
+| [**cadastro_maquinas**](./demospring/)            | `Java (Spring Boot)` | Um sistema CRUD inicial que aplica herança e polimorfismo para cadastrar máquinas. |
+| [**movie_catalog_mvc**](./movie_catalog_mvc/)     | `Java (Puro)`        | Um catálogo de filmes simples para praticar o padrão de arquitetura MVC.           |
 
 <br>
 
-## Tecnologias e Conceitos Abordados
+## Evolução e Conceitos Abordados
+
+A progressão dos projetos demonstra a aplicação gradual de conceitos de POO e tecnologias do ecossistema Java:
+
+- **`movie_catalog_mvc`**: Foco nos fundamentos do padrão **MVC** em Java puro.
+- **`cadastro_maquinas`**: Introdução ao **Spring Boot** para a criação de um CRUD, aplicando **Herança** e **Polimorfismo** com Spring Data JPA.
+- **`manutencao_maquinas`**: Evolução do projeto anterior, adicionando relacionamentos complexos através da **Associação entre Classes** (`Maquina`, `Manutencao`, `Funcionario`).
+
+## Tecnologias Utilizadas
 
 - **Linguagem:** Java
 - **Framework:** Spring Boot
-- **Arquitetura:** MVC (Model-View-Controller), Herança e Polimorfismo
+- **Arquitetura:** MVC (Model-View-Controller), Herança, Polimorfismo e Associação
 - **Banco de Dados:** MySQL com Spring Data JPA
-- **Front-end:** Thymeleafgit
+- **Front-end:** Thymeleaf e Bootstrap
 - **Ferramentas:** Maven
 
 ## Objetivo
 
-Este repositório serve como um portfólio para documentar meu aprendizado e aplicação prática dos paradigmas da orientação a objetos e do ecossistema Java.
+Este repositório serve como um portfólio para documentar meu processo de aprendizado e a aplicação prática dos paradigmas da orientação a objetos na construção de aplicações Java, desde as mais simples até as mais robustas.
 
 ---
 
