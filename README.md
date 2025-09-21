@@ -19,7 +19,7 @@ Cada subdiretório é um projeto independente que aborda diferentes aspectos da 
 - **Framework:** Spring Boot
 - **Arquitetura:** MVC (Model-View-Controller), Herança e Polimorfismo
 - **Banco de Dados:** MySQL com Spring Data JPA
-- **Front-end:** Thymeleaf
+- **Front-end:** Thymeleafgit
 - **Ferramentas:** Maven
 
 ## Objetivo
